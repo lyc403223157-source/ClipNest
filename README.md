@@ -20,7 +20,9 @@ ClipNest 想解决的就是这件小事：把最近复制的内容和真正高�
 
 ## 下载与运行
 
-从 GitHub Releases 下载 `ClipNest-0.7.3-macos-arm64.zip`，解压后把 `ClipNest.app` 拖入“应用程序”。当前预览版使用本地临时签名，尚未经过 Apple Developer ID 公证；首次运行如果被 Gatekeeper 阻止，可在 Finder 中右键 App 后选择“打开”。
+从 GitHub Releases 下载对应系统的安装包：macOS 使用 `ClipNest-0.7.3-macos-arm64.zip`，Windows 使用 `.exe` 安装程序，Ubuntu/Debian Linux 使用 `.deb` 安装包。
+
+macOS 版本解压后可把 `ClipNest.app` 拖入“应用程序”。当前预览版使用本地临时签名，尚未经过 Apple Developer ID 公证；首次运行如果被 Gatekeeper 阻止，可在 Finder 中右键 App 后选择“打开”。
 
 ## 当前交互
 
