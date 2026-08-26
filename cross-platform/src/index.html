@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClipNest</title>
+    <script type="module" src="/main.js" defer></script>
+  </head>
+
+  <body>
+    <div id="clipnest-app" class="clipnest-app">
+      <header class="app-header">
+        <div class="brand"><span class="brand-mark">⌘</span><span>ClipNest</span></div>
+        <div class="header-actions">
+          <span id="hotkey-status" class="status-chip"><span data-hotkey>Alt+V</span>&nbsp;监听中</span>
+          <button id="permission-help" class="ghost-button permission-button" type="button" hidden>权限设置</button>
+          <button id="open-picker" class="ghost-button" type="button">打开面板 <kbd data-hotkey>Alt+V</kbd></button>
+        </div>
+      </header>
+
+      <main class="app-main">
+        <section id="home-view" class="view">
+          <div class="intro-row">
+            <div><p class="eyebrow">QUICK PICKER</p><h1>快速粘贴</h1><p class="muted">按 <kbd data-hotkey>Alt+V</kbd> 唤起面板，左右选标签，上下选内容，回车即可粘贴；<kbd data-direct-paste-hotkey>Ctrl+V</kbd> 保持系统直接粘贴。</p></div>
+            <button id="open-manager" class="primary-button" type="button">管理内容</button>
+          </div>
+
+          <section class="test-card">
+            <div class="card-heading"><div><h2>先试一下</h2><p class="muted">写入测试内容并打开快速面板，不会上传任何数据。</p></div><span class="live-dot">本地运行</span></div>
+            <div class="test-row"><textarea id="test-clipboard" rows="2">https://docs.example.com/getting-started</textarea><button id="simulate-paste" class="primary-button" type="button">模拟 <span data-hotkey>Alt+V</span></button></div>
+            <div id="permission-note" class="permission-note" hidden><div><strong>⌘V 没有反应？</strong><p>macOS 需要允许 ClipNest 使用“辅助功能”，全局快捷键才能监听。</p></div><button id="permission-note-action" class="ghost-button" type="button">打开系统设置</button></div>
+          </section>
+
+          <div class="section-heading"><h2>标签概览</h2><span class="muted">每组显示五条高度，更多内容滚动浏览</span></div>
+          <div id="tag-overview" class="tag-grid"></div>
+        </section>
+
+        <section id="manage-view" class="view" hidden>
+          <div class="intro-row"><div><p class="eyebrow">LIBRARY</p><h1>管理内容</h1><p class="muted">这里负责维护标签和内容，粘贴面板只负责选择。</p></div><button id="back-home" class="ghost-button" type="button">← 返回面板</button></div>
+          <div class="manager-layout">
+            <aside class="tag-sidebar"><div class="sidebar-heading"><span>标签</span><button id="new-tag" class="icon-button" type="button" aria-label="新建标签">＋</button></div><div id="manager-tags"></div></aside>
+            <section class="manager-content"><div id="manager-items"></div></section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="picker-overlay" class="picker-overlay" hidden>
+      <section class="picker" role="dialog" aria-modal="true" aria-labelledby="picker-title">
+        <div class="picker-heading"><div><h2 id="picker-title">选择要粘贴的内容</h2><p class="muted">←→ 标签 · ↑↓ 条目 · Enter 粘贴 · Esc 关闭</p></div><button id="dismiss-picker" class="icon-button" type="button" aria-label="关闭">×</button></div>
+        <div id="picker-tabs" class="picker-tabs"></div>
+        <div id="picker-items" class="picker-items"></div>
+        <div class="picker-footer"><span id="picker-hint" class="muted">最近 · 1 / 5</span><button id="add-clipboard" class="text-button" type="button">＋ 添加当前剪贴板</button></div>
+      </section>
+    </div>
+    <div id="toast" class="toast" role="status"></div>
+  </body>
+</html>
