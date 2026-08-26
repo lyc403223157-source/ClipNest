@@ -1,0 +1,8 @@
+.DS_Store
+.build/
+dist/
+*.xcuserstate
+xcuserdata/
+cross-platform/node_modules/
+cross-platform/src-tauri/target/
+cross-platform/*.log
