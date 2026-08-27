@@ -1,5 +1,7 @@
 # ClipNest Native
 
+简体中文 | [English](README_EN.md)
+
 ClipNest Native 是 macOS 原生 AppKit 版本。
 
 当前版本：`0.7.3`。支持 Apple Silicon，最低系统版本为 macOS 13。
